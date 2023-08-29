@@ -17,6 +17,7 @@
 		<button class="buttons" data="+">+</button>
 		<button class="buttons" data="-">-</button>
 		<button class="buttons" data="=">=</button>
+		<button class="buttons" data="clear">CA</button>
 		</div>
 	<script type="text/javascript">
 		var num1=null;
@@ -37,13 +38,16 @@
 			 	else if(value=="="){
 			 		opperator="+";
 					num2=parseFloat(display.textContent);
-					res=eval("num1 opperator num2");
-					display.innerText(res);
+					res=eval("num1"+ opperator +"num2");
+					display.innerText=res;
+					console.log(res);
+
 				}	
 				else{
 					display.innerText+=value;
 				}
-				
+				if (value=="clear")
+					display.innerText=null;
 				}
 			);
 		}
